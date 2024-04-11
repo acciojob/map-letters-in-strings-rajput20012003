@@ -1,16 +1,29 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Map Letters</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
+<script>
+function mapLetters(word) {
+  const lettersMap = {};
+  for (let i = 0; i < word.length; i++) {
+    const letter = word[i];
+    if (!lettersMap[letter]) {
+      lettersMap[letter] = [i];
+    } else {
+      lettersMap[letter].push(i);
+    }
+  }
+  return lettersMap;
+}
+
+// Test cases
+console.log(mapLetters("dodo")); // ➞ { d: [0, 2], o: [1, 3] }
+console.log(mapLetters("froggy")); // ➞ { f: [0], r: [1], o: [2], g: [3, 4], y: [5] }
+console.log(mapLetters("grapes")); // ➞ { g: [0], r: [1], a: [2], p: [3], e: [4], s: [5] }
 </script>
-
 </body>
-
 </html>
